@@ -1,0 +1,2 @@
+[console_scripts]
+enroll_agents_elk = app.cli:main

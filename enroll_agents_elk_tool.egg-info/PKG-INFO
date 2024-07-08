@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: enroll_agents_elk_tool
+Version: 1.2.0
+Summary: Tool to install elastic agents on chosen Azure virtual machines in a chosen subscription in order to monitor those virtual machines inside our ELK monitoring solution.
+Home-page: https://github.com/hindzaafouri/Enroll-elastic-agents-CLI-tool.git
+Author: Hind Zaafouri
+Author-email: hindzaafouri19@gmail.com
+License: Apache License 2.0
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.10
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: azure-core>=1.30.2
+Requires-Dist: azure-identity>=1.17.1
+Requires-Dist: azure-mgmt-compute>=31.0.0
+Requires-Dist: azure-mgmt-core>=1.4.0
+Requires-Dist: azure-mgmt-network>=25.4.0
+Requires-Dist: azure-mgmt-resource>=23.1.1
+Requires-Dist: azure-mgmt-subscription>=3.1.1
+Requires-Dist: azure-storage-blob>=12.20.0
+Requires-Dist: Click>=7.0
+Requires-Dist: halo>=0.0.31
+Requires-Dist: paramiko>=3.4.0

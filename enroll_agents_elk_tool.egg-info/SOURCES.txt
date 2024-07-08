@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+app/__init__.py
+app/__main__.py
+app/application.py
+app/azure_utils.py
+app/cli.py
+app/constants.py
+app/vm_operations.py
+enroll_agents_elk_tool.egg-info/PKG-INFO
+enroll_agents_elk_tool.egg-info/SOURCES.txt
+enroll_agents_elk_tool.egg-info/dependency_links.txt
+enroll_agents_elk_tool.egg-info/entry_points.txt
+enroll_agents_elk_tool.egg-info/requires.txt
+enroll_agents_elk_tool.egg-info/top_level.txt
