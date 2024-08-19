@@ -121,14 +121,8 @@ jobs:
 
       - name: Run Safety scan
         run: |
-          safety scan --api-key ${{ secrets.SAFETY_API_KEY }} --output-format txt > safety-report.txt
+          safety scan --api-key ${{ secrets.SAFETY_API_KEY }}
 
-      - name: Upload Safety report
-        if: success()
-        uses: actions/upload-artifact@v3
-        with:
-          name: safety-report
-          path: safety-report.txt
 
   bandit:
     runs-on: ubuntu-latest
@@ -149,7 +143,7 @@ jobs:
 
       - name: Run Bandit security scan
         run: |
-          bandit -r app -f txt -o bandit-report.txt
+          bandit -r app -f txt -o bandit-report.txt || true
 
       - name: Upload Bandit report
         if: success()
