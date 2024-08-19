@@ -1,0 +1,60 @@
+name: CI Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lint-format-test:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install black flake8 pytest
+
+      - name: Lint code
+        run: |
+          flake8 app tests
+
+      - name: Check formatting
+        run: |
+          black --check app tests
+
+      - name: Format tests
+        if: github.event_name == 'push'
+        run: |
+          black tests app
+        continue-on-error: true
+
+      - name: Run tests
+        run: |
+          pytest --maxfail=1 --disable-warnings -q
+
+      - name: Upload test coverage report
+        uses: actions/upload-artifact@v3
+        if: success()
+        with:
+          name: test-coverage
+          path: coverage-report.html
+
+      - name: Upload linting and formatting report
+        uses: actions/upload-artifact@v3
+        if: failure()
+        with:
+          name: lint-format-report
+          path: |
+            .flake8
+            .tox
+            black-report.txt
