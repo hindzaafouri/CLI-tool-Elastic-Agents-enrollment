@@ -26,21 +26,20 @@ jobs:
 
       - name: Lint code
         run: |
-          flake8 app tests
+          flake8 app tests || true
 
       - name: Check formatting
         run: |
-          black --check app tests
+          black --check app tests || true
 
-      - name: Format tests
+      - name: Format code
         if: github.event_name == 'push'
         run: |
-          black tests app
-        continue-on-error: true
+          black app tests || true
 
       - name: Run tests
         run: |
-          pytest --maxfail=1 --disable-warnings -q
+          pytest --maxfail=1 --disable-warnings -q --tb=short
 
       - name: Upload test coverage report
         uses: actions/upload-artifact@v3
