@@ -1,12 +1,12 @@
 name: CI Workflow
 
 on:
-  # push:
-  #   branches:
-  #     - main
-  pull_request:
+  push:
     branches:
       - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   lint:
@@ -119,9 +119,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install safety
 
-      - name: Run Safety scan
-        run: |
-          safety scan --api-key ${{ secrets.SAFETY_API_KEY }} || true
+      # - name: Run Safety scan
+      #   run: |
+      #     safety scan --api-key ${{ secrets.SAFETY_API_KEY }} || true
+
+      - name: Run Safety Scan
+        uses: pyupio/safety-action@v1
+        with:
+          api-key: ${{ secrets.SAFETY_API_KEY }}
 
 
   bandit:
