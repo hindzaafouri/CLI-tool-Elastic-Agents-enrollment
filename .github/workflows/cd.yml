@@ -30,6 +30,6 @@ jobs:
 
       - name: Deploy to TestPyPI
         env:
-          API_TOKEN: ${{ secrets.TEST_PYPI_API_TOKEN }}
+          API_TOKEN: ${{ secrets.PYPI_API_TOKEN }}
         run: |
           python -m twine upload --repository testpypi --skip-existing dist/* -u __token__ -p $API_TOKEN
