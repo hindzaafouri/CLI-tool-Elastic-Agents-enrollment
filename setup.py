@@ -8,7 +8,7 @@ with open("requirements.txt", "r", encoding="utf-8") as fh:
 
 setup(
     name="enroll_agents_elk_tool",
-    version="1.2.0",
+    version="1.3.0",
     author="Hind Zaafouri",
     author_email="hindzaafouri19@gmail.com",
     license="Apache License 2.0",
