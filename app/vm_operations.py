@@ -29,52 +29,6 @@ def check_elastic_agent_status(ssh_client):
         raise RuntimeError(f"Failed to check Elastic Agent status: {e}")
 
 
-# def copy_http_ca_to_vm(
-#     vm_ip, os_type, storage_account_name, storage_account_key, vm_username, vm_password
-# ):
-#     try:
-#         from azure.storage.blob import BlobServiceClient
-
-#         blob_service_client = BlobServiceClient(
-#             account_url=f"https://{storage_account_name}.blob.core.windows.net",
-#             credential=storage_account_key,
-#         )
-
-#         container_name = "secrets-elk"
-#         blob_name = "http_ca.crt"
-
-#         blob_client = blob_service_client.get_blob_client(
-#             container=container_name, blob=blob_name
-#         )
-#         target_path = f"/home/{vm_username}/http_ca.crt"
-
-#         if os.name == "nt":  # Windows
-#             local_path = os.path.expandvars(r"%TEMP%\http_ca.crt")
-#         else:  # Linux or other Unix-like
-#             local_path = "/tmp/http_ca.crt"
-
-#         with Halo(
-#             text=click.style("Downloading http_ca.crt...", fg="green"), spinner="dots"
-#         ):
-#             with open(local_path, "wb") as file:
-#                 download_stream = blob_client.download_blob()
-#                 file.write(download_stream.readall())
-#             click.echo(f"File downloaded successfully to {local_path}")
-
-#         with Halo(
-#             text=click.style("Copying http_ca.crt to VM...", fg="green"), spinner="dots"
-#         ):
-#             ssh_client = paramiko.SSHClient()
-#             ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-#             ssh_client.connect(vm_ip, username=vm_username, password=vm_password)
-#             sftp_client = ssh_client.open_sftp()
-#             sftp_client.put(local_path, target_path)
-#             sftp_client.close()
-#             click.echo("File copied to target machine successfully.")
-
-#     except Exception as e:
-#         raise RuntimeError(f"Failed to copy file: {e}")
-
 def copy_http_ca_to_vm(
     vm_ip, os_type, STORAGE_ACCOUNT_NAME, STORAGE_ACCOUNT_KEY, vm_username, vm_password
 ):

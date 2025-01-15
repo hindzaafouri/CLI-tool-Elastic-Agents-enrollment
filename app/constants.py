@@ -1,2 +1,2 @@
-STORAGE_ACCOUNT_NAME = "sapfe1 "
-STORAGE_ACCOUNT_KEY = "hh5sRwAqd8oDhQO2jglwbDh2y5Wdh6OZJJs4xCiUbwhzFMCh/cFSj1hYu2Rn54gcXSJ9HMM4VtNm+AStdJh65w=="
+STORAGE_ACCOUNT_NAME = "your_storage_account_name"
+STORAGE_ACCOUNT_KEY = "your_storage_account_key"
