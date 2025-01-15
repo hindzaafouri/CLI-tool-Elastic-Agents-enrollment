@@ -15,7 +15,7 @@ setup(
     description="A versatile CLI tool designed to streamline the installation of Elastic Agents on selected Azure Virtual Machines within a specified subscription. This tool facilitates seamless integration of Azure VMs into an ELK stack, enabling comprehensive monitoring and log analysis across your cloud infrastructure.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/hindzaafouri/Enroll-elastic-agents-CLI-tool.git",  # Replace with your repository URL
+    url="your_repository_URL",
     packages=find_packages(include=["app", "app.*"]),
     # py_modules=['app'],
     install_requires=[requirements],
